@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<!-- Bootstrap início -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Bootstrap fim -->
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+
+    <style type="text/css">    	
+    	.espacamento {/*margem padrão de espaçamento dos campos do formulario*/
+
+    		margin: 10px;
+    	}
+    </style>
+
+
+
+    <script type="text/javascript" src="app.js"></script>
+
+	<title>Projeto TCC</title>
+</head>
+
+<body onload="carregaListaPesquisas()">
+
+	<nav class="navbar navbar-expang-lg navbar-dark bg-primary mb-1" >
+		<div class="container">
+			<a class="navbar-brand" href="">Cadastro de pesquisa bibliográfica para TCC</a>		
+		</div>	
+	</nav>
+
+	<div class="container">
+
+
+		<div class="row">
+			<div class="col-md-12 espacamento">
+				<h1>Registro de novo documento para pesquisa</h1>			
+			</div>		
+		</div>	
+
+
+		<div class="row">
+			<div class="col-md-10 espacamento">
+				<input type="text" name="" class="form-control" placeholder="digite aqui o título do trabalho" id="titulo">		
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 espacamento">
+				<input type="text" name="" class="form-control" placeholder="digite aqui o autor" id="autor">		
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3 espacamento">
+				<select class="form-control" id="tipo">
+					<option value="">tipo</option>
+					<option value="1">Tese</option>
+					<option value="2">TCC</option>
+					<option value="3">Outros</option>			
+				</select>		
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-10 espacamento">
+				<input type="link" class="form-control" name="" placeholder="cole aqui o link da página web" id="pagina">		
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3 espacamento">
+				<a href="" class="mt-2">Data da Pesquisa</a>
+				<input type="date" class="form-control" id="data">		
+		</div>
+	
+
+		<div class="col-md-6 d-flex justify-content-end">
+			<button type="button" class="btn btn-primary espacamento" onclick="cadastrarPesquisa()" id="btn_in">
+				<i class="fas fa-plus"></i>
+			</button>		
+			<button type="button" class="btn btn-info espacamento" onclick="procurarPesquisa()" id="btn_pesquisa">
+				<i class="fas fa-search"></i>
+			</button>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Titulo</th>
+						<th>Autor</th>
+						<th>Tipo</th>
+						<th>Link</th>
+						<th>Data</th>
+					</tr>
+				</thead>
+
+				<tbody id="listaPesquisas">
+					
+				</tbody>				
+			</table>			
+		</div>		
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="modalRegistraPesquisa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div id="modal_titulo_div">
+	        <h5 class="modal-title" id="modal_titulo"></h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body" id="modal_conteudo"></div>
+	      <div class="modal-footer">
+	        <button type="button" data-dismiss="modal" id="modal_btn"></button>
+	        
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	</div>
+
+</body>
+
+</html>
